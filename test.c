@@ -1,3 +1,8 @@
+/*
+ * GIT test - B
+ * 
+ */
+
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -13,6 +18,5 @@ int main(int argc, char **argv)
 	
 	if ( VALID_GROUPIP(100) ) {
 		printf("I am valid.\n");
-	}
-	 
+	}	 
 }
