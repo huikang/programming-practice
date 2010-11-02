@@ -1,2 +1,25 @@
 CC=gcc
 
+ALL:	gcd postfix
+
+test:	test.o
+	${CC} -o test test.o
+
+test.o:	test.c
+	${CC} -o test.o -c test.c
+
+
+gcd:	gcd.o
+	${CC} -o gcd gcd.o
+
+gcd.o:	gcd.c
+	${CC} -o gcd.o -c gcd.c
+
+
+postfix:	postfix.o
+	${CC} -o postfix postfix.o
+postfix.o:	postfix.c
+	${CC} -o postfix.o -c postfix.c
+
+clean:
+	rm *.o test postfix
