@@ -9,15 +9,11 @@
 
 #include "bitree.h"
 
-struct Node;
-
-static int *int_data;
-
 #define TRUE 1;
 #define FALSE 0;
 
-static struct Node *root;
-void insert(struct Node *root, struct Node *cn);
+static Node *root;
+void insert(Node **,  Node *);
 
 /* help functions */
 void usage() { printf("Please provide input data file.\n");}
@@ -38,15 +34,29 @@ int main (int argc, char *argv[]) {
 	}
 	printf("File opened successfully.\n");
 	
-	root = (struct Node*) malloc(sizeof(Node));
+	root = NULL;
 	
 	printf("%ld\n", sizeof(Node));
 	return 1;
 }
 
+void printout(Node * tree) {
+	if(tree->left) printout(tree->left);
+	printf("%d\n",tree->val);
+	if(tree->right) printout(tree->right);
+}
+
 /********** Operation functions ********************/
-void insert(struct Node *root, struct Node *cn) {
-	
+void insert(Node **root,  Node *item) {
+	if (!(*root)) {
+		*root = item;
+		return;
+	}
+	printf("insert\n");
+	if(item->val<(*root)->val)
+		insert(&(*root)->left, item);
+	else if(item->val>(*root)->val)
+		insert(&(*root)->right, item);
 }
 
 /********** Helper functions ***********************/
@@ -66,8 +76,6 @@ int read_file(char *filename) {
 	int initialized = FALSE;
 	while (fgets(line, sizeof(line), file) != NULL) {
 		if (!initialized) {
-			int_data = (int *)malloc(sizeof(int));
-			printf("init int_data\n");
 			initialized = TRUE;
 		}
 		line_no++;
@@ -81,11 +89,15 @@ int read_file(char *filename) {
 			printf("Line %d is not an integer\n", line_no);
 		}
 		else {
-			// printf("Converted to %d\n", tmp);
+			Node *curr;
+			curr = (Node *) malloc(sizeof(Node));
+			curr->left = curr->right = NULL;
+			curr->val = tmp;
 			num_data++;
+			insert(&root, curr);
 		}
 	}
-	
+	printout(root);
 	printf("%d integer(s) in total.\n", num_data);
 	fclose(file);
 	return rc;

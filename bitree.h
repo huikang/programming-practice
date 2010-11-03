@@ -10,13 +10,13 @@
 #include <stdio.h>
 #include <string.h>
 
-typedef struct _node {
-	struct Node *left;
-	struct Node *rright;
+struct _node {
+	struct _node *left;
+	struct _node *right;
 	
-	struct Node *parent;
-} Node;
+	struct _node *parent;
+	
+	int val;
+};
 
-/* insert a node to the binary tree */
-void insert(struct Node *root, struct Node *cn);
-
+typedef struct _node Node;
