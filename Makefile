@@ -1,6 +1,6 @@
 CC=gcc
 
-ALL:	gcd postfix bitree test sumTov strcmp
+ALL:	gcd postfix bitree test sumTov strcmp searchWithEmpty
 
 test:	test.o
 	${CC} -o test test.o
@@ -37,6 +37,12 @@ strcmp: strcmp.o
 	${CC} -o strcmp strcmp.o
 strcmp.o:	strcmp.c
 	${CC} -o strcmp.o -c strcmp.c
+
+searchWithEmpty: searchWithEmpty.o
+	${CC} -o searchWithEmpty searchWithEmpty.o
+searchWithEmpty.o:	searchWithEmpty.c
+	${CC} -o searchWithEmpty.o -c searchWithEmpty.c
+
 
 
 clean:

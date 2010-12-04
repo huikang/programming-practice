@@ -6,3 +6,6 @@
 
 
 strcmp - compare two strings.
+
+searchWithEmpty - search for a substring in a string S; S may contain 
+		  empty characters.
