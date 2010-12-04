@@ -1,6 +1,6 @@
 CC=gcc
 
-ALL:	gcd postfix bitree
+ALL:	gcd postfix bitree test sumTov strcmp
 
 test:	test.o
 	${CC} -o test test.o
@@ -21,11 +21,23 @@ postfix:	postfix.o
 postfix.o:	postfix.c
 	${CC} -o postfix.o -c postfix.c
 
+
 # Binary tree application
 bitree: bitree.o
 	${CC} -o bitree bitree.o
 bitree.o:	bitree.c
 	${CC} -o bitree.o -c bitree.c
 
+sumTV: sumTov.o
+	${CC} -o sumTov sumTo.o
+sumTov.o:	sumTov.c
+	${CC} -o sumTov.o -c sumTov.c
+	
+strcmp: strcmp.o
+	${CC} -o strcmp strcmp.o
+strcmp.o:	strcmp.c
+	${CC} -o strcmp.o -c strcmp.c
+
+
 clean:
-	rm *.o test postfix gcd bitree
+	rm *.o test postfix gcd bitree sumTov strcmp
