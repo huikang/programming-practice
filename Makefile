@@ -1,6 +1,6 @@
 CC=gcc
 
-ALL:	gcd postfix bitree test sumTov strcmp searchWithEmpty
+ALL:	gcd postfix bitree test sumTov strcmp searchWithEmpty reverseString edit_dist printPar
 
 test:	test.o
 	${CC} -o test test.o
@@ -43,7 +43,20 @@ searchWithEmpty: searchWithEmpty.o
 searchWithEmpty.o:	searchWithEmpty.c
 	${CC} -o searchWithEmpty.o -c searchWithEmpty.c
 
+reverseString: reverseString.o
+	${CC} -o reverseString reverseString.o
+reverseString.o:	reverseString.c
+	${CC} -o reverseString.o -c reverseString.c
 
+edit_dist: edit_dist.o
+	${CC} -o edit_dist edit_dist.o
+edit_dist.o:	edit_dist.c
+	${CC} -o edit_dist.o -c edit_dist.c
+
+printPar: printPar.o
+	${CC} -o printPar printPar.o
+printPar.o:	printPar.c
+	${CC} -o printPar.o -c printPar.c
 
 clean:
-	rm *.o test postfix gcd bitree sumTov strcmp
+	rm *.o test postfix gcd bitree sumTov strcmp reverseString printPar

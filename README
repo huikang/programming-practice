@@ -9,3 +9,8 @@ strcmp - compare two strings.
 
 searchWithEmpty - search for a substring in a string S; S may contain 
 		  empty characters.
+
+reverseString - reverse a C-style string
+
+bitSwap (3.1) - determine the number of bits required to convert to integer A
+  	  to integer B.
