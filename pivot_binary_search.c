@@ -1,3 +1,9 @@
+/*
+ * Problem: find an element in an sorted array. Note that the array is rotated
+ * once at a pivot.
+ *
+ */
+
 #include <stdlib.h>
 #include <stdio.h>
 
