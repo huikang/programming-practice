@@ -1,6 +1,7 @@
 CC=gcc
 
-ALL:	gcd postfix bitree test sumTov strcmp searchWithEmpty reverseString edit_dist printPar
+ALL:	gcd postfix bitree test sumTov strcmp searchWithEmpty reverseString edit_dist traverse_tree\
+printPar reverseLinkedList pivot_binary_search
 
 test:	test.o
 	${CC} -o test test.o
@@ -20,7 +21,6 @@ postfix:	postfix.o
 	${CC} -o postfix postfix.o
 postfix.o:	postfix.c
 	${CC} -o postfix.o -c postfix.c
-
 
 # Binary tree application
 bitree: bitree.o
@@ -58,5 +58,17 @@ printPar: printPar.o
 printPar.o:	printPar.c
 	${CC} -o printPar.o -c printPar.c
 
+reverseLinkedList: reverseLinkedList.o
+	${CC} -o reverseLinkedList reverseLinkedList.o
+reverseLinkedList.o:	reverseLinkedList.c
+	${CC} -o reverseLinkedList.o -c reverseLinkedList.c
+
+traverse_tree: traverse_tree.o tree.o
+	${CC} -Wall -o traverse_tree traverse_tree.o tree.o
+
+pivot_binary_search: pivot_binary_search.o
+	${CC} -Wall -o pivot_binary_search pivot_binary_search.o
+
 clean:
-	rm *.o test postfix gcd bitree sumTov strcmp reverseString printPar
+	rm *.o test postfix gcd bitree sumTov strcmp reverseString printPar \
+  traverse_tree pivot_binary_search

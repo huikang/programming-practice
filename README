@@ -16,3 +16,5 @@ bitSwap (3.1) - determine the number of bits required to convert to integer A
   	  to integer B.
 
 sort.c - different sorting algorithms
+
+reverseLinkedList - example to reverse linked list

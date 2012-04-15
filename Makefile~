@@ -53,10 +53,10 @@ edit_dist: edit_dist.o
 edit_dist.o:	edit_dist.c
 	${CC} -o edit_dist.o -c edit_dist.c
 
-printPar: edit_dist.o
-	${CC} -o edit_dist edit_dist.o
-edit_dist.o:	edit_dist.c
-	${CC} -o edit_dist.o -c edit_dist.c
+printPar: printPar.o
+	${CC} -o printPar printPar.o
+printPar.o:	printPar.c
+	${CC} -o printPar.o -c printPar.c
 
 clean:
-	rm *.o test postfix gcd bitree sumTov strcmp reverseString
+	rm *.o test postfix gcd bitree sumTov strcmp reverseString printPar
