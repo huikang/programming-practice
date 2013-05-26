@@ -1,7 +1,8 @@
 CC=gcc
+CLFLAGS=-Wall -O2
 
 ALL:	gcd postfix bitree test sumTov strcmp searchWithEmpty reverseString edit_dist traverse_tree\
-printPar reverseLinkedList pivot_binary_search
+printPar reverseLinkedList pivot_binary_search setbits
 
 test:	test.o
 	${CC} -o test test.o
@@ -57,6 +58,11 @@ printPar: printPar.o
 	${CC} -o printPar printPar.o
 printPar.o:	printPar.c
 	${CC} -o printPar.o -c printPar.c
+	
+setbits: setbits.o
+	${CC} ${CLFLAGS} -o setbits setbits.o
+setbits.o:	setbits.c
+	${CC} ${CLFLAGS} -o setbits.o -c setbits.c
 
 reverseLinkedList: reverseLinkedList.o
 	${CC} -o reverseLinkedList reverseLinkedList.o
@@ -71,4 +77,4 @@ pivot_binary_search: pivot_binary_search.o
 
 clean:
 	rm *.o test postfix gcd bitree sumTov strcmp reverseString printPar \
-  traverse_tree pivot_binary_search
+  traverse_tree pivot_binary_search setbits
